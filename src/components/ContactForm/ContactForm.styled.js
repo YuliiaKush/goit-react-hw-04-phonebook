@@ -1,40 +1,51 @@
 import styled from 'styled-components';
 
-export const ContactFormContainer = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 300px;
-  margin: 0 0 20px 0;
-  border: 1px solid #ccc;
-  padding: 20px;
 `;
 
-export const FormLabel = styled.label`
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: 600;
+export const FormName = styled.input`
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem auto;
+  align-items: center;
+  font-size: large;
+  text-align: left;
+  padding: 0.5rem 15rem 0.5rem 1rem;
 `;
 
-export const FormInput = styled.input`
-  padding: 5px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 18px;
+export const FormNumber = styled.input`
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem auto;
+  align-items: center;
+  font-size: large;
+  text-align: left;
+  padding: 0.5rem 15rem 0.5rem 1rem;
 `;
 
-export const FormButton = styled.button`
-  width: 150px;
-  font-size: 17px;
-  border-radius: 4px;
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: #fff;
+export const FormBtn = styled.button`
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  background-color: rgb(0, 123, 255);
   border: none;
+  border-radius: 6px;
+  color: #fff;
+  flex-grow: 1;
+  font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  height: 36px;
+  line-height: 20px;
+  margin-left: 8px;
+  margin-right: 6px;
+  min-width: 185px;
+  padding: 0 16px 0 16px;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s;
 
   &:hover {
     background-color: #0056b3;
+    cursor: pointer;
   }
 `;

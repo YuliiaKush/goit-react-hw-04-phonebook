@@ -1,22 +1,11 @@
 import styled from 'styled-components';
 
-export const FilterContainer = styled.div`
+export const FilterName = styled.input`
   display: flex;
   flex-direction: column;
-  width: 300px;
-  margin: 0;
-  padding: 20px;
-`;
-
-export const FilterLabel = styled.label`
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: 600;
-`;
-
-export const FilterInput = styled.input`
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 18px;
+  margin: 0.5rem auto 1rem;
+  align-items: center;
+  font-size: large;
+  text-align: left;
+  padding: 0.5rem 15rem 0.5rem 1rem;
 `;

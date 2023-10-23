@@ -1,21 +1,20 @@
-import { useContactsContext } from '../Context/Context';
-import {
-  FilterContainer,
-  FilterLabel,
-  FilterInput,
-} from './ContactFilter.styled';
+import propTypes from 'prop-types';
+import { FilterName } from './ContactFilter.styled';
 
-export const ContactFilter = () => {
-  const { filter, handleFilterChange } = useContactsContext();
-  return (
-    <FilterContainer>
-      <FilterLabel htmlFor="nameFilterInput">Find contacts by name</FilterLabel>
-      <FilterInput
-        id="nameFilterInput"
-        type="text"
-        value={filter}
-        onChange={handleFilterChange}
-      />
-    </FilterContainer>
-  );
+export const Filter = ({ filter, handleChange }) => (
+  <div>
+    <label>Find contacts by Name </label>
+    <FilterName
+      type="text"
+      name="filter"
+      placeholder="Enter filter"
+      value={filter}
+      onChange={handleChange}
+    />
+  </div>
+);
+
+Filter.propTypes = {
+  filter: propTypes.string.isRequired,
+  handleChange: propTypes.func.isRequired,
 };
