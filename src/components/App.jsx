@@ -6,27 +6,15 @@ import { ContactList } from './ContactList/ContactList';
 import { useState, useEffect } from 'react';
 
 export const App = () => {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(() => {
+    return JSON.parse(window.localStorage.getItem('contacts'));
+  });
+
   const [filter, setFilter] = useState('');
-  const [firstRender, setFirstRender] = useState(true);
 
   useEffect(() => {
-    if (firstRender) {
-      const contactsFromLocalStorage =
-        window.localStorage.getItem('contactList');
-
-      if (contactsFromLocalStorage !== 'undefined') {
-        const parsedContacts = JSON.parse(contactsFromLocalStorage);
-
-        if (parsedContacts) {
-          setContacts(parsedContacts);
-        }
-      }
-      setFirstRender(false);
-    } else {
-      window.localStorage.setItem('contactList', JSON.stringify(contacts));
-    }
-  }, [contacts, firstRender]);
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   const handleChange = e => {
     const { value } = e.target;
@@ -49,7 +37,9 @@ export const App = () => {
   };
 
   const handleDelete = e => {
-    setContacts(contacts.filter(contact => contact.id !== e));
+    setContacts(prevContacts =>
+      prevContacts.filter(contact => contact.id !== e)
+    );
   };
 
   const getFilteredContacts = () => {
